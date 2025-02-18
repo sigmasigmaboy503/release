@@ -4,11 +4,18 @@ local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.Name = "ExecutorGUI"
 
--- Create the main frame
+-- Create the theme overlay (dark red and black background)
+local themeOverlay = Instance.new("Frame")
+themeOverlay.Size = UDim2.new(1, 0, 1, 0)  -- Full screen size
+themeOverlay.Position = UDim2.new(0, 0, 0, 0)
+themeOverlay.BackgroundColor3 = Color3.fromRGB(40, 0, 0)  -- Dark red background
+themeOverlay.Parent = ScreenGui
+
+-- Create the main frame where content will go (on top of the overlay)
 local mainFrame = Instance.new("Frame")
 mainFrame.Size = UDim2.new(0, 500, 0, 500)
 mainFrame.Position = UDim2.new(0.5, -250, 0.5, -250)
-mainFrame.BackgroundColor3 = Color3.fromRGB(40, 0, 0)  -- Dark red background
+mainFrame.BackgroundTransparency = 1  -- Make the background of the frame transparent
 mainFrame.Parent = ScreenGui
 
 -- Create the title label
@@ -18,7 +25,7 @@ titleLabel.Position = UDim2.new(0, 0, 0, 0)
 titleLabel.Text = "SUP3RN0V4"
 titleLabel.TextSize = 30
 titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)  -- White text
-titleLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)  -- Black background
+titleLabel.BackgroundTransparency = 1  -- Make background transparent
 titleLabel.TextAlignment = Enum.TextAlignment.Center
 titleLabel.Parent = mainFrame
 
@@ -68,7 +75,7 @@ buttons["V1"] = createButton("V1", UDim2.new(0, 10, 0, 240), doNothing)
 local tabContainer = Instance.new("Frame")
 tabContainer.Size = UDim2.new(1, -20, 1, -270)
 tabContainer.Position = UDim2.new(0, 10, 0, 270)
-tabContainer.BackgroundColor3 = Color3.fromRGB(30, 0, 0)  -- Dark red background for tab container
+tabContainer.BackgroundTransparency = 1  -- Make background transparent
 tabContainer.Parent = mainFrame
 
 local tabs = {}
@@ -79,7 +86,7 @@ for i = 1, 10 do
     local tabFrame = Instance.new("Frame")
     tabFrame.Size = UDim2.new(1, 0, 0, 50)
     tabFrame.Position = UDim2.new(0, 0, 0, (i - 1) * 60)  -- Added spacing between tabs
-    tabFrame.BackgroundColor3 = Color3.fromRGB(60, 0, 0)  -- Dark red for individual tab frames
+    tabFrame.BackgroundTransparency = 1  -- Make background transparent
     tabFrame.Parent = tabContainer
 
     local tabButton = Instance.new("TextButton")
