@@ -77,8 +77,8 @@ local textBoxes = {}
 -- Create the tabs and textboxes
 for i = 1, 10 do
     local tabFrame = Instance.new("Frame")
-    tabFrame.Size = UDim2.new(1, 0, 0, 40)
-    tabFrame.Position = UDim2.new(0, 0, 0, (i - 1) * 50)
+    tabFrame.Size = UDim2.new(1, 0, 0, 50)
+    tabFrame.Position = UDim2.new(0, 0, 0, (i - 1) * 60)  -- Added spacing between tabs
     tabFrame.BackgroundColor3 = Color3.fromRGB(60, 0, 0)  -- Dark red for individual tab frames
     tabFrame.Parent = tabContainer
 
